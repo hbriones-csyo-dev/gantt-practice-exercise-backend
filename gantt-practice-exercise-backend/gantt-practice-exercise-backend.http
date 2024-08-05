@@ -1,0 +1,6 @@
+@gantt_practice_exercise_backend_HostAddress = http://localhost:5074
+
+GET {{gantt_practice_exercise_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
