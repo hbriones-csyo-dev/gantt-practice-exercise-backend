@@ -11,6 +11,7 @@ namespace gantt_practice_exercise_backend.Models
         [Key]
         public string? Id { get; set; }
 
+        [StringLength(50, ErrorMessage = "Name length can't be more than 50", MinimumLength = 1)]
         [JsonPropertyName("text")]
         public string? Text { get; set; }
 

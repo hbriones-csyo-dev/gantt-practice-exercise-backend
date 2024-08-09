@@ -23,7 +23,7 @@ namespace gantt_practice_exercise_backend.context
 
         //entities
         public DbSet<ProjectTask> ProjectTasks { get; set; }
-
+        public DbSet<ProjectTaskLink> ProjectTaskLinks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

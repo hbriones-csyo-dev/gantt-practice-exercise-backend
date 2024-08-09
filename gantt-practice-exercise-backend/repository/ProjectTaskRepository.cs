@@ -52,6 +52,7 @@ namespace gantt_practice_exercise_backend.repository
             //    data.State = EntityState.Detached;
             //}
             _context.ProjectTasks.Update(projectTask);
+          
             await _context.SaveChangesAsync();
           _context.ProjectTasks.Entry(projectTask).State = EntityState.Detached;
 

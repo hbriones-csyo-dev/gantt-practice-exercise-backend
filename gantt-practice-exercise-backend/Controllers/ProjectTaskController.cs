@@ -4,6 +4,7 @@ using gantt_practice_exercise_backend.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace gantt_practice_exercise_backend.Controllers
 {
@@ -13,9 +14,11 @@ namespace gantt_practice_exercise_backend.Controllers
     {
 
         private readonly IProjectTaskService _projectTaskService;
-        public ProjectTaskController(IProjectTaskService projectTaskService) 
+        private readonly ILogger<ProjectTaskController> _logger;
+        public ProjectTaskController(IProjectTaskService projectTaskService, ILogger<ProjectTaskController> logger) 
         {
             _projectTaskService = projectTaskService;
+            _logger = logger;
         }
 
 
@@ -32,7 +35,9 @@ namespace gantt_practice_exercise_backend.Controllers
             }
             catch (Exception ex) 
             {
-                return StatusCode(500, ex.Message);
+                _logger.LogError(ex.ToString());
+                
+                return StatusCode(500, "There is something wrong. Please Contact the admin");
             }
         }
 
@@ -52,7 +57,8 @@ namespace gantt_practice_exercise_backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex.Message);
+                _logger.LogError(ex.ToString());
+                return StatusCode(500, "There is something wrong. Please Contact the admin");
             }
         }
 
@@ -66,7 +72,8 @@ namespace gantt_practice_exercise_backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex.Message);
+                _logger.LogError(ex.ToString());
+                return StatusCode(500, "There is something wrong. Please Contact the admin");
             }
         }
 
@@ -82,7 +89,8 @@ namespace gantt_practice_exercise_backend.Controllers
             }
             catch (Exception ex) 
             {
-                return StatusCode(500, ex);
+                _logger.LogError(ex.ToString());
+                return StatusCode(500, "There is something wrong. Please Contact the admin");
             }
           
 
@@ -100,7 +108,8 @@ namespace gantt_practice_exercise_backend.Controllers
             }
             catch (Exception ex) 
             {
-                return StatusCode(500, ex.Message);
+                _logger.LogError(ex.ToString());
+                return StatusCode(500, "There is something wrong. Please Contact the admin");
             }
         }
 

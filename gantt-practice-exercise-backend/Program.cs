@@ -52,8 +52,12 @@ app.Run();
 void ConfigureServices(IServiceCollection services)
 {
     services.AddTransient<ClickHouseContext>();
+
     // Services
     services.AddScoped<IProjectTaskService, ProjectTaskService>();
+    services.AddScoped<IProjectTaskLinkService, ProjectTaskLinkService>();
+
     // Repository
     services.AddScoped<IProjectTaskRepository, ProjectTaskRepository>();
+    services.AddScoped<IProjectTaskLinkRepository, ProjectTaskLinkRepository>();
 }
